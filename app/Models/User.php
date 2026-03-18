@@ -34,7 +34,6 @@ class User extends Authenticatable
      * $this->orders - Collection<Order> - contains the associated orders
      * $this->reviews - Collection<Review> - contains the associated reviews
      */
-
     protected $fillable = [
         'name',
         'email',

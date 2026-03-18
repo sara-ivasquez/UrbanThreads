@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Sara Vasquez 
+ * Sara Vasquez
  */
 
 namespace App\Http\Controllers;

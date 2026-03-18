@@ -33,7 +33,6 @@ class Product extends Model
      * $this->items - Collection<Item> - contains the associated items
      * $this->reviews - Collection<Review> - contains the associated reviews
      */
-
     protected $fillable = [
         'title',
         'description',
