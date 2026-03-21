@@ -1,0 +1,81 @@
+<?php
+
+return [
+    'title' => 'Panel de Administración - Urban Threads',
+
+    'dashboard' => [
+        'title' => 'Panel de Administración',
+        'subtitle' => 'Bienvenido al panel de administración',
+        'products' => [
+            'title' => 'Productos',
+            'description' => 'Gestiona el catálogo de productos de la tienda.',
+            'view' => 'Ver Productos',
+            'create' => 'Crear Producto',
+        ],
+    ],
+
+    'products' => [
+        'list' => [
+            'title' => 'Productos - Urban Threads',
+            'subtitle' => 'Lista de productos',
+            'image' => 'Imagen',
+            'table_title' => 'Título',
+            'price' => 'Precio',
+            'category' => 'Categoría',
+            'stock' => 'Stock',
+            'state' => 'Estado',
+            'state_active' => 'Activo',
+            'state_inactive' => 'Inactivo',
+            'actions' => 'Acciones',
+            'show_product' => 'Ver Producto',
+            'edit' => 'Editar',
+            'enable' => 'Habilitar',
+            'disable' => 'Deshabilitar',
+            'no_products' => 'No hay productos disponibles aún.',
+        ],
+        'create' => [
+            'title' => 'Crear Nuevo Producto',
+            'form' => [
+                'title' => 'Título',
+                'description' => 'Descripción',
+                'category_id' => 'Categoría',
+                'select_category' => 'Seleccionar Categoría',
+                'image' => 'URL de la Imagen',
+                'price' => 'Precio',
+                'stock' => 'Stock',
+                'submit' => 'Guardar',
+                'cancel' => 'Cancelar',
+            ],
+        ],
+        'show' => [
+            'title_suffix' => 'Urban Threads',
+            'basic_details' => 'Detalles del Producto',
+            'system_details' => 'Información del Sistema',
+            'description' => 'Descripción',
+            'category' => 'Categoría',
+            'price' => 'Precio',
+            'stock' => 'Stock',
+            'state' => 'Estado',
+            'back_to_list' => 'Volver a la Lista',
+            'created_at' => 'Fecha de Creación',
+            'updated_at' => 'Fecha de Actualización',
+        ],
+        'edit' => [
+            'title' => 'Editar Producto',
+            'form' => [
+                'title' => 'Título',
+                'description' => 'Descripción',
+                'category_id' => 'Categoría',
+                'select_category' => 'Seleccionar Categoría',
+                'image' => 'URL de la Imagen',
+                'price' => 'Precio',
+                'stock' => 'Stock',
+                'state' => 'Estado del Producto',
+                'state_active' => 'Activo',
+                'state_inactive' => 'Inactivo',
+                'submit' => 'Actualizar Producto',
+                'cancel' => 'Cancelar',
+            ],
+        ],
+    ],
+];

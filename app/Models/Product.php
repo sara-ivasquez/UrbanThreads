@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Developed by [tu nombre].
+ * Sara Vasquez
  */
 
 namespace App\Models;
