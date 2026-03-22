@@ -13,16 +13,16 @@ class Item extends Model
 {
     /**
      * ITEM ATTRIBUTES
-     * $this->attributes['id'] - int
-     * $this->attributes['quantity'] - int
-     * $this->attributes['price'] - int
-     * $this->attributes['product_id'] - int
-     * $this->attributes['order_id'] - int
-     * $this->attributes['created_at'] - timestamp
-     * $this->attributes['updated_at'] - timestamp
+     * $this->attributes['id'] - intb- contains the primary key of the item
+     * $this->attributes['quantity'] - int - contains the quantity of the product
+     * $this->attributes['price'] - int - contains the price of the product at the time of the order
+     * $this->attributes['product_id'] - int - contains the foreign key of the product
+     * $this->attributes['order_id'] - int - contains the foreign key of the order
+     * $this->attributes['created_at'] - timestamp - contains the timestamp of when the item was created
+     * $this->attributes['updated_at'] - timestamp - contains the timestamp of when the item was last updated
      *
-     * $this->product - Product
-     * $this->order - Order
+     * $this->product - Product - contains the product associated with the item
+     * $this->order - Order - contains the order associated with the item
      */
     protected $fillable = [
         'quantity',

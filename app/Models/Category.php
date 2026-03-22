@@ -9,18 +9,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
+    use HasFactory;
     /**
      * CATEGORY ATTRIBUTES
-     * $this->attributes['id'] - int
-     * $this->attributes['name'] - string
-     * $this->attributes['description'] - string
-     * $this->attributes['created_at'] - timestamp
-     * $this->attributes['updated_at'] - timestamp
+     * $this->attributes['id'] - int - contains the primary key of the category
+     * $this->attributes['name'] - string - contains the name of the category
+     * $this->attributes['description'] - string - contains the description of the category
+     * $this->attributes['created_at'] - timestamp - contains the timestamp of when the category was created
+     * $this->attributes['updated_at'] - timestamp - contains the timestamp of when the category was last updated
      *
-     * $this->products - Collection<Product>
+     * $this->products - Collection<Product> - contains the products associated with the category
      */
     protected $fillable = [
         'name',
