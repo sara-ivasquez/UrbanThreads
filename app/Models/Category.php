@@ -6,20 +6,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
-    use HasFactory;
 
     /**
      * CATEGORY ATTRIBUTES
-     * $this->attributes['id'] - int - contains the category primary key (id)
-     * $this->attributes['name'] - string - contains the category name
-     * $this->attributes['description'] - string - contains the category description
-     * $this->attributes['created_at'] - timestamp - contains the category creation date
-     * $this->attributes['updated_at'] - timestamp - contains the category update date
+     * $this->attributes['id'] - int
+     * $this->attributes['name'] - string
+     * $this->attributes['description'] - string
+     * $this->attributes['created_at'] - timestamp
+     * $this->attributes['updated_at'] - timestamp
+     *
+     * $this->products - Collection<Product>
      */
 
     protected $fillable = [
@@ -60,5 +62,20 @@ class Category extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function setProducts(Collection $products): void
+    {
+        $this->products = $products;
     }
 }

@@ -1,31 +1,30 @@
 <?php
 
 /**
- * Item Model
+ * Jacobo Montes
  */
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Item extends Model
 {
-    use HasFactory;
 
     /**
      * ITEM ATTRIBUTES
-     * $this->attributes['id'] - int - contains the item primary key (id)
-     * $this->attributes['quantity'] - int - contains the quantity of the item
-     * $this->attributes['price'] - int - contains the price of the item
-     * $this->attributes['product_id'] - int - contains the foreign key of the product
-     * $this->attributes['order_id'] - int - contains the foreign key of the order
-     * $this->attributes['created_at'] - timestamp - contains the item creation date
-     * $this->attributes['updated_at'] - timestamp - contains the item update date
+     * $this->attributes['id'] - int
+     * $this->attributes['quantity'] - int
+     * $this->attributes['price'] - int
+     * $this->attributes['product_id'] - int
+     * $this->attributes['order_id'] - int
+     * $this->attributes['created_at'] - timestamp
+     * $this->attributes['updated_at'] - timestamp
      *
-     * $this->product - Product - contains the associated product
-     * $this->order - Order - contains the associated order
+     * $this->product - Product
+     * $this->order - Order
      */
 
     protected $fillable = [
