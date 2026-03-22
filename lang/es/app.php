@@ -78,6 +78,11 @@ return [
 
     'reviews' => [
         'title' => 'Reseñas de Clientes',
+        'qualification' => 'Calificación',
+        'select_qualification' => 'Seleccione una calificación',
+        'description' => 'Descripción',
+        'save' => 'Guardar reseña',
+        'login_required' => 'Debes iniciar sesión para dejar una reseña.',
         'no_reviews' => 'Aún no hay reseñas. ¡Sé el primero en compartir tu opinión!',
     ],
 
