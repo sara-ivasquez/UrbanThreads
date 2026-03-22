@@ -3,13 +3,14 @@
 /**
  * Jacobo Montes
  */
+
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
-use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
