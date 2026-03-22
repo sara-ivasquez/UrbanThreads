@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
-
     /**
      * CATEGORY ATTRIBUTES
      * $this->attributes['id'] - int
