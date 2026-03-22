@@ -24,7 +24,6 @@ class Item extends Model
      * $this->product - Product
      * $this->order - Order
      */
-
     protected $fillable = [
         'quantity',
         'price',

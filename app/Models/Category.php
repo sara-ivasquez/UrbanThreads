@@ -22,7 +22,6 @@ class Category extends Model
      *
      * $this->products - Collection<Product>
      */
-
     protected $fillable = [
         'name',
         'description',
