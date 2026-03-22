@@ -6,15 +6,16 @@ use Illuminate\Support\Facades\Route;
 $homeControllerRoute = 'App\Http\Controllers\HomeController';
 $productControllerRoute = 'App\Http\Controllers\ProductController';
 $userControllerRoute = 'App\Http\Controllers\UserController';
+$adminHomeControllerRoute = 'App\Http\Controllers\Admin\HomeController';
 
 // Home Controller routes
 Route::get('/', $homeControllerRoute.'@index')->name('home.index');
 
-// Product Controller routes (usuario final)
+// Product Controller routes (final user)
 Route::get('/product', $productControllerRoute.'@index')->name('product.index');
 Route::get('/product/show/{id}', $productControllerRoute.'@show')->name('product.show');
 
-// User Controller routes (usuario final - requiere login)
+// User Controller routes (final user- requiere login)
 Route::middleware('auth')->group(function () use ($userControllerRoute) {
     Route::get('/user/profile', $userControllerRoute.'@show')->name('user.show');
     Route::get('/user/orders', $userControllerRoute.'@orders')->name('user.orders');
