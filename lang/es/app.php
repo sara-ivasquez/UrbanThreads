@@ -100,4 +100,23 @@ return [
             'no_orders' => 'Aún no has realizado ningún pedido.',
         ],
     ],
+
+    'categories' => [
+        'index' => [
+            'title' => 'Categorías - Lista',
+            'subtitle' => 'Listado de categorías',
+        ],
+        'create' => [
+            'title' => 'Categorías - Crear',
+            'subtitle' => 'Crear una nueva categoría',
+        ],
+        'show' => [
+            'title' => 'Categoría - Detalle',
+            'subtitle' => 'Información de la categoría',
+        ],
+        'edit' => [
+            'title' => 'Categoría - Editar',
+            'subtitle' => 'Editar categoría',
+        ],
+    ],
 ];

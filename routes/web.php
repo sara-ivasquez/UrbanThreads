@@ -39,4 +39,16 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/product/enable/{id}', $adminProductControllerRoute.'@enable')->name('admin.product.enable');
 });
 
+// Admin Category Controller routes
+Route::middleware('admin')->group(function () {
+    $adminCategoryControllerRoute = 'App\Http\Controllers\Admin\CategoryController';
+    Route::get('/admin/category', $adminCategoryControllerRoute.'@index')->name('admin.category.index');
+    Route::get('/admin/category/create', $adminCategoryControllerRoute.'@create')->name('admin.category.create');
+    Route::post('/admin/category/save', $adminCategoryControllerRoute.'@store')->name('admin.category.save');
+    Route::get('/admin/category/show/{id}', $adminCategoryControllerRoute.'@show')->name('admin.category.show');
+    Route::get('/admin/category/edit/{id}', $adminCategoryControllerRoute.'@edit')->name('admin.category.edit');
+    Route::post('/admin/category/update/{id}', $adminCategoryControllerRoute.'@update')->name('admin.category.update');
+    Route::get('/admin/category/delete/{id}', $adminCategoryControllerRoute.'@destroy')->name('admin.category.delete');
+});
+
 Auth::routes();
