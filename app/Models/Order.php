@@ -4,8 +4,6 @@ namespace App\Models;
 
 // Made by: Franchesca Garcia
 
-use App\Models\Item;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -69,14 +67,14 @@ class Order extends Model
         $this->attributes['user_id'] = $userId;
     }
 
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
-        return $this->attributes['created_at'];
+        return $this->attributes['created_at'] ?? null;
     }
 
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
-        return $this->attributes['updated_at'];
+        return $this->attributes['updated_at'] ?? null;
     }
 
     public function user(): BelongsTo
@@ -89,11 +87,6 @@ class Order extends Model
         return $this->user;
     }
 
-    public function setUser(User $user): void
-    {
-        $this->user = $user;
-    }
-
     public function items(): HasMany
     {
         return $this->hasMany(Item::class);
@@ -104,8 +97,8 @@ class Order extends Model
         return $this->items;
     }
 
-    public function setItems(Collection $items): void
+    public static function getOrdersByUserId(int $userId): Collection
     {
-        $this->items = $items;
+        return self::with(['items.product'])->where('user_id', $userId)->get();
     }
 }
