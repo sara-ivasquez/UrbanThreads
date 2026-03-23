@@ -4,24 +4,50 @@
 
 @section('content')
     <div class="container">
-        <h1>{{ $viewData['title'] }}</h1>
-        <h5 class="text-muted mb-4">{{ $viewData['subtitle'] }}</h5>
 
-        <form method="POST" action="{{ route('admin.category.save') }}">
-            @csrf
-
-            <div class="mb-3">
-                <label class="form-label">Nombre</label>
-                <input type="text" name="name" class="form-control" required>
+        <div class="p-4 mb-4 bg-dark text-white rounded-3">
+            <div>
+                <h1 class="fw-bold mb-1">{{ $viewData['title'] }}</h1>
+                <p class="mb-0 text-light">{{ $viewData['subtitle'] }}</p>
             </div>
+        </div>
 
-            <div class="mb-3">
-                <label class="form-label">Descripción</label>
-                <textarea name="description" class="form-control" rows="3" required></textarea>
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+
+                <form method="POST" action="{{ route('admin.category.save') }}">
+                    @csrf
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            {{ __('app.categories.fields.name') }}
+                        </label>
+                        <input type="text" name="name" class="form-control form-control-lg" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            {{ __('app.categories.fields.description') }}
+                        </label>
+                        <textarea name="description" class="form-control form-control-lg" rows="4" required></textarea>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-circle me-1"></i>
+                            {{ __('app.categories.actions.save') }}
+                        </button>
+
+                        <a href="{{ route('admin.category.index') }}" class="btn btn-outline-secondary">
+                            <i class="bi bi-x-circle me-1"></i>
+                            {{ __('app.categories.actions.cancel') }}
+                        </a>
+                    </div>
+
+                </form>
+
             </div>
+        </div>
 
-            <button type="submit" class="btn btn-success">Guardar</button>
-            <a href="{{ route('admin.category.index') }}" class="btn btn-secondary">Cancelar</a>
-        </form>
     </div>
 @endsection

@@ -37,7 +37,7 @@ class CategoryController extends Controller
         return view('admin.category.create')->with('viewData', $viewData);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function save(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -85,7 +85,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->update($request->only(['name', 'description']));
 
-        return redirect()->route('admin.category.show', ['id' => $id]);
+        return redirect()->route('admin.category.show', ['id' => $category->getId()]);
     }
 
     public function destroy(int $id): RedirectResponse
