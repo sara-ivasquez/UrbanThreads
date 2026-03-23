@@ -5,7 +5,6 @@
 @section('content')
     <div class="container">
 
-        <!-- Header -->
         <div class="p-4 mb-4 bg-dark text-white rounded-3">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
@@ -19,11 +18,9 @@
             </div>
         </div>
 
-        <!-- Table Card -->
         <div class="card shadow-sm border-0">
             <div class="card-body">
 
-                <!-- Table -->
                 @if (count($viewData['categories']) > 0)
                     <div class="table-responsive">
                         <table class="table table-hover align-middle text-center">
@@ -38,14 +35,18 @@
                             </thead>
                             <tbody>
                                 @foreach ($viewData['categories'] as $category)
-                                    <tr>
+                                    <tr class="{{ $category->getState() == 'disabled' ? 'table-secondary text-muted' : '' }}">
                                         <td class="fw-bold">{{ $category->getId() }}</td>
-                                        <td>{{ $category->getName() }}</td>
+                                        <td>
+                                            {{ $category->getName() }}
+                                            @if ($category->getState() == 'disabled')
+                                                <span class="ms-1 fst-italic">({{ __('app.categories.state.disabled') }})</span>
+                                            @endif
+                                        </td>
                                         <td class="text-muted">
-                                            {{ \Illuminate\Support\Str::limit($category->getDescription(), 50) }}
+                                            {{ $category->getDescription() }}
                                         </td>
 
-                                        <!-- State -->
                                         <td>
                                             @if ($category->getState() == 'active')
                                                 <span class="badge bg-success">
@@ -58,27 +59,21 @@
                                             @endif
                                         </td>
 
-                                        <!-- Actions -->
                                         <td>
                                             <div class="d-flex justify-content-center gap-2">
 
-                                                <a href="{{ route('admin.category.show', ['id' => $category->getId()]) }}"
-                                                    class="btn btn-outline-info btn-sm">
-                                                    <i class="bi bi-eye"></i>
-                                                </a>
-
-                                                <a href="{{ route('admin.category.edit', ['id' => $category->getId()]) }}"
+                                                <a href="{{ route('app.category.edit', ['id' => $category->getId()]) }}"
                                                     class="btn btn-outline-warning btn-sm">
                                                     <i class="bi bi-pencil"></i>
                                                 </a>
 
                                                 @if ($category->getState() == 'active')
-                                                    <a href="{{ route('admin.category.disable', ['id' => $category->getId()]) }}"
+                                                    <a href="{{ route('app.category.disable', ['id' => $category->getId()]) }}"
                                                         class="btn btn-outline-danger btn-sm">
                                                         <i class="bi bi-x-circle"></i>
                                                     </a>
                                                 @else
-                                                    <a href="{{ route('admin.category.enable', ['id' => $category->getId()]) }}"
+                                                    <a href="{{ route('app.category.enable', ['id' => $category->getId()]) }}"
                                                         class="btn btn-outline-success btn-sm">
                                                         <i class="bi bi-check-circle"></i>
                                                     </a>
@@ -91,8 +86,6 @@
                             </tbody>
                         </table>
                     </div>
-
-                <!-- Empty -->
                 @else
                     <div class="text-center py-5">
                         <i class="bi bi-inbox fs-1 text-muted"></i>
