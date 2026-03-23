@@ -46,6 +46,24 @@
                             </li>
                         </ul>
                     </li>
+                    <!-- Categories -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-tags"></i> {{ __('admin.dashboard.categories.title') }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.category.index') }}">
+                                    <i class="bi bi-list"></i> {{ __('admin.dashboard.categories.view') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.category.create') }}">
+                                    <i class="bi bi-plus-circle"></i> {{ __('admin.dashboard.categories.create') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     @auth

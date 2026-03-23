@@ -126,7 +126,12 @@ return [
             'id' => 'ID',
             'name' => 'Nombre',
             'description' => 'Descripción',
+            'state' => 'Estado',
             'actions' => 'Acciones',
+        ],
+        'state' => [
+            'active' => 'Activo',
+            'disabled' => 'Deshabilitado',
         ],
         'actions' => [
             'show' => 'Ver',
