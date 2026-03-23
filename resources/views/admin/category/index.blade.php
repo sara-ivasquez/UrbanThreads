@@ -62,18 +62,18 @@
                                         <td>
                                             <div class="d-flex justify-content-center gap-2">
 
-                                                <a href="{{ route('app.category.edit', ['id' => $category->getId()]) }}"
+                                                <a href="{{ route('admin.category.edit', ['id' => $category->getId()]) }}"
                                                     class="btn btn-outline-warning btn-sm">
                                                     <i class="bi bi-pencil"></i>
                                                 </a>
 
                                                 @if ($category->getState() == 'active')
-                                                    <a href="{{ route('app.category.disable', ['id' => $category->getId()]) }}"
+                                                    <a href="{{ route('admin.category.disable', ['id' => $category->getId()]) }}"
                                                         class="btn btn-outline-danger btn-sm">
                                                         <i class="bi bi-x-circle"></i>
                                                     </a>
                                                 @else
-                                                    <a href="{{ route('app.category.enable', ['id' => $category->getId()]) }}"
+                                                    <a href="{{ route('admin.category.enable', ['id' => $category->getId()]) }}"
                                                         class="btn btn-outline-success btn-sm">
                                                         <i class="bi bi-check-circle"></i>
                                                     </a>
