@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 // Made by: Franchesca Garcia
 
 use App\Http\Requests\OrderPurchaseRequest;
-use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
@@ -18,25 +17,11 @@ class OrderController extends Controller
         $product = Product::findOrFail((int) $request->input('product_id'));
         $quantity = (int) $request->input('quantity');
 
-        if ($product->getState() !== 'active' || $product->getStock() < $quantity) {
+        if (!Order::canBePurchased($product, $quantity)) {
             return redirect()->route('product.show', ['id' => $product->getId()]);
         }
 
-        $order = new Order();
-        $order->setUserId((int) Auth::id());
-        $order->setState('pending');
-        $order->setTotalPrice($product->getPrice() * $quantity);
-        $order->save();
-
-        $item = new Item();
-        $item->setQuantity($quantity);
-        $item->setPrice($product->getPrice());
-        $item->setProductId($product->getId());
-        $item->setOrderId($order->getId());
-        $item->save();
-
-        $product->setStock($product->getStock() - $quantity);
-        $product->save();
+        Order::createFromProduct($product, $quantity, (int) Auth::id());
 
         return redirect()->route('user.orders');
     }

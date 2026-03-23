@@ -101,4 +101,28 @@ class Order extends Model
     {
         return self::with(['items.product'])->where('user_id', $userId)->get();
     }
+
+    public static function canBePurchased(Product $product, int $quantity): bool
+    {
+        return $product->getState() === 'active' && $product->getStock() >= $quantity;
+    }
+
+    public static function createFromProduct(Product $product, int $quantity, int $userId): void
+    {
+        $order = new self();
+        $order->setUserId($userId);
+        $order->setState('pending');
+        $order->setTotalPrice($product->getPrice() * $quantity);
+        $order->save();
+
+        $item = new Item();
+        $item->setQuantity($quantity);
+        $item->setPrice($product->getPrice());
+        $item->setProductId($product->getId());
+        $item->setOrderId($order->getId());
+        $item->save();
+
+        $product->setStock($product->getStock() - $quantity);
+        $product->save();
+    }
 }

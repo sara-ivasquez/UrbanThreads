@@ -66,6 +66,7 @@ return [
             'title_suffix' => 'Urban Threads',
             'description' => 'Descripción',
             'details' => 'Detalles del Producto',
+            'price' => 'Precio',
             'category' => 'Categoría',
             'stock' => 'Stock',
             'state' => 'Estado',
