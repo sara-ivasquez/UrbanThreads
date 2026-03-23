@@ -7,6 +7,7 @@ $homeControllerRoute = 'App\Http\Controllers\HomeController';
 $productControllerRoute = 'App\Http\Controllers\ProductController';
 $userControllerRoute = 'App\Http\Controllers\UserController';
 $adminHomeControllerRoute = 'App\Http\Controllers\Admin\HomeController';
+$orderControllerRoute = 'App\Http\Controllers\OrderController';
 
 // Home Controller routes
 Route::get('/', $homeControllerRoute.'@index')->name('home.index');
@@ -15,15 +16,15 @@ Route::get('/', $homeControllerRoute.'@index')->name('home.index');
 Route::get('/product', $productControllerRoute.'@index')->name('product.index');
 Route::get('/product/show/{id}', $productControllerRoute.'@show')->name('product.show');
 
-// User Controller routes (final user- requiere login)
-Route::middleware('auth')->group(function () use ($userControllerRoute) {
+// User Controller routes (final user - require login)
+Route::middleware('auth')->group(function () use ($userControllerRoute, $orderControllerRoute) {
     Route::get('/user/profile', $userControllerRoute.'@show')->name('user.show');
     Route::get('/user/orders', $userControllerRoute.'@orders')->name('user.orders');
+    Route::post('/order/purchase', $orderControllerRoute.'@purchase')->name('order.purchase');
 });
 
 // Admin Home Controller routes
-Route::middleware('admin')->group(function () {
-    $adminHomeControllerRoute = 'App\Http\Controllers\Admin\HomeController';
+Route::middleware('admin')->group(function () use ($adminHomeControllerRoute) {
     Route::get('/admin/home', $adminHomeControllerRoute.'@index')->name('admin.home.index');
 });
 

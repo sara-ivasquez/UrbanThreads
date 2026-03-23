@@ -11,6 +11,7 @@
             </div>
             <div class="card-body">
                 <b>{{ __('app.user.orders.date') }}:</b> {{ $order->getCreatedAt() }}<br />
+                <b>{{ __('app.user.orders.state') }}:</b> {{ $order->getState() }}<br />
                 <b>{{ __('app.user.orders.total') }}:</b> ${{ $order->getTotalPrice() }}<br />
 
                 <table class="table table-bordered table-striped text-center mt-3">

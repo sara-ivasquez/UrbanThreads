@@ -94,6 +94,7 @@ return [
             'subtitle' => 'Historial de pedidos',
             'order_number' => 'Pedido',
             'date' => 'Fecha',
+            'state' => 'Estado',
             'total' => 'Total',
             'item_id' => 'ID del Artículo',
             'product_name' => 'Nombre del Producto',
