@@ -1,3 +1,4 @@
+{{-- Made by: Sara Vasquez --}}
 @extends('layouts.app')
 
 @section('title', $viewData['title'])
@@ -12,9 +13,10 @@
             </div>
         </div>
 
-        <!-- Category Filter -->
+        <!-- Filters Section -->
         <div class="row mb-4">
-            <div class="col-md-6">
+            <!-- Category Filter -->
+            <div class="col-md-6 mb-3">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0">{{ __('app.products.list.filter_by_category') }}</h5>
@@ -32,6 +34,25 @@
                             </select>
                             <button type="submit" class="btn btn-primary">
                                 {{ __('app.products.list.filter') }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Filter -->
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">{{ __('app.products.list.search_by_name') }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="GET" action="{{ route('product.index') }}" class="d-flex">
+                            <input type="text" name="search" class="form-control me-2"
+                                placeholder="{{ __('app.products.list.search_placeholder') }}"
+                                value="{{ $viewData['searchQuery'] ?? '' }}">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-search"></i>
                             </button>
                         </form>
                     </div>
