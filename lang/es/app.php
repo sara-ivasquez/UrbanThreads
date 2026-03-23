@@ -100,4 +100,40 @@ return [
             'no_orders' => 'Aún no has realizado ningún pedido.',
         ],
     ],
+
+    'categories' => [
+        'index' => [
+            'title' => 'Categorías - Lista',
+            'subtitle' => 'Listado de categorías',
+            'create_button' => 'Crear Categoría',
+            'empty' => 'No hay categorías registradas',
+        ],
+        'create' => [
+            'title' => 'Categorías - Crear',
+            'subtitle' => 'Crear una nueva categoría',
+        ],
+        'edit' => [
+            'title' => 'Categoría - Editar',
+            'subtitle' => 'Editar categoría',
+        ],
+        'show' => [
+            'title' => 'Categoría - Detalle',
+            'subtitle' => 'Información de la categoría',
+        ],
+        'fields' => [
+            'id' => 'ID',
+            'name' => 'Nombre',
+            'description' => 'Descripción',
+            'actions' => 'Acciones',
+        ],
+        'actions' => [
+            'show' => 'Ver',
+            'edit' => 'Editar',
+            'delete' => 'Eliminar',
+            'save' => 'Guardar',
+            'update' => 'Actualizar',
+            'cancel' => 'Cancelar',
+            'back' => 'Volver',
+        ],
+    ],
 ];

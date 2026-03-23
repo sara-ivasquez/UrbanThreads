@@ -28,6 +28,7 @@ class Category extends Model
     protected $fillable = [
         'name',
         'description',
+        'state',
     ];
 
     public function getId(): int
@@ -78,5 +79,15 @@ class Category extends Model
     public function setProducts(Collection $products): void
     {
         $this->products = $products;
+    }
+
+    public function getState(): string
+    {
+        return $this->attributes['state'];
+    }
+
+    public function setState(string $state): void
+    {
+        $this->attributes['state'] = $state;
     }
 }
