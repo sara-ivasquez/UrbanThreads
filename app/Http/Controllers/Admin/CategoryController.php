@@ -16,7 +16,7 @@ class CategoryController extends Controller
 {
     public function index(): View
     {
-        $categories = Category::all();
+        $categories = Category::where('state', 'active')->get();
 
         $viewData = [
             'title' => __('app.categories.index.title'),
@@ -88,10 +88,20 @@ class CategoryController extends Controller
         return redirect()->route('admin.category.show', ['id' => $category->getId()]);
     }
 
-    public function destroy(int $id): RedirectResponse
+    public function disable(int $id): RedirectResponse
     {
         $category = Category::findOrFail($id);
-        $category->delete();
+        $category->setState('disabled');
+        $category->save();
+
+        return redirect()->route('admin.category.index');
+    }
+
+    public function enable(int $id): RedirectResponse
+    {
+        $category = Category::findOrFail($id);
+        $category->setState('active');
+        $category->save();
 
         return redirect()->route('admin.category.index');
     }

@@ -48,7 +48,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/category/show/{id}', $adminCategoryControllerRoute.'@show')->name('admin.category.show');
     Route::get('/admin/category/edit/{id}', $adminCategoryControllerRoute.'@edit')->name('admin.category.edit');
     Route::post('/admin/category/update/{id}', $adminCategoryControllerRoute.'@update')->name('admin.category.update');
-    Route::get('/admin/category/delete/{id}', $adminCategoryControllerRoute.'@destroy')->name('admin.category.delete');
+    Route::get('/admin/category/disable/{id}', $adminCategoryControllerRoute.'@disable')->name('admin.category.disable');
+    Route::get('/admin/category/enable/{id}', $adminCategoryControllerRoute.'@enable')->name('admin.category.enable');
 });
 
 Auth::routes();

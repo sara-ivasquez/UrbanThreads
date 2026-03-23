@@ -5,6 +5,7 @@
 @section('content')
     <div class="container">
 
+        <!-- Header -->
         <div class="p-4 mb-4 bg-dark text-white rounded-3">
             <div>
                 <h1 class="fw-bold mb-1">{{ $viewData['title'] }}</h1>
@@ -12,16 +13,20 @@
             </div>
         </div>
 
+        <!-- Card -->
         <div class="card shadow-sm border-0">
             <div class="card-body text-center py-5">
 
+                <!-- Icon -->
                 <i class="bi bi-tag fs-1 text-primary mb-3"></i>
 
+                <!-- Info -->
                 <h3 class="fw-bold">{{ $viewData['category']->getName() }}</h3>
                 <p class="text-muted mb-4">
                     {{ $viewData['category']->getDescription() }}
                 </p>
 
+                <!-- Actions -->
                 <div class="d-flex justify-content-center gap-2">
                     <a href="{{ route('admin.category.edit', ['id' => $viewData['category']->getId()]) }}"
                         class="btn btn-warning">
