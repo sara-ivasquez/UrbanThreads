@@ -17,10 +17,14 @@ class ProductController extends Controller
     public function index(Request $request): View
     {
         $categoryId = $request->query('category');
+        $searchQuery = $request->query('search');
         $productsQuery = Product::where('state', 'active');
 
         if ($categoryId) {
             $productsQuery->where('category_id', $categoryId);
+        }
+        if ($searchQuery) {
+            $productsQuery->where('title', 'like', '%'.$searchQuery.'%');
         }
 
         $products = $productsQuery->get();
@@ -32,6 +36,7 @@ class ProductController extends Controller
             'products' => $products,
             'categories' => $categories,
             'selectedCategory' => $categoryId,
+            'searchQuery' => $searchQuery,
         ];
 
         return view('product.index')->with('viewData', $viewData);

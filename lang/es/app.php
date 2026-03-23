@@ -59,6 +59,8 @@ return [
             'filter_by_category' => 'Filtrar por Categoría',
             'all_categories' => 'Todas las Categorías',
             'filter' => 'Filtrar',
+            'search_by_name' => 'Buscar por nombre',
+            'search_placeholder' => 'Buscar producto...',
         ],
         'show' => [
             'title_suffix' => 'Urban Threads',
