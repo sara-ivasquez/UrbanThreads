@@ -76,7 +76,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->update($request->only(['name', 'description']));
 
-        return redirect()->route('admin.category.show', ['id' => $category->getId()]);
+        return redirect()->route('admin.category.index');
     }
 
     public function disable(int $id): RedirectResponse
