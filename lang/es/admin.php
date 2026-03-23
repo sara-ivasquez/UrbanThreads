@@ -2,7 +2,6 @@
 
 return [
     'title' => 'Panel de Administración - Urban Threads',
-
     'dashboard' => [
         'title' => 'Panel de Administración',
         'subtitle' => 'Bienvenido al panel de administración',
@@ -12,8 +11,13 @@ return [
             'view' => 'Ver Productos',
             'create' => 'Crear Producto',
         ],
+        'categories' => [
+            'title' => 'Categorías',
+            'description' => 'Gestiona las categorías de productos de la tienda.',
+            'view' => 'Ver Categorías',
+            'create' => 'Crear Categoría',
+        ],
     ],
-
     'products' => [
         'list' => [
             'title' => 'Productos - Urban Threads',
