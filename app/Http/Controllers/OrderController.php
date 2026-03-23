@@ -17,7 +17,7 @@ class OrderController extends Controller
         $product = Product::findOrFail((int) $request->input('product_id'));
         $quantity = (int) $request->input('quantity');
 
-        if (!Order::canBePurchased($product, $quantity)) {
+        if (! Order::canBePurchased($product, $quantity)) {
             return redirect()->route('product.show', ['id' => $product->getId()]);
         }
 

@@ -109,13 +109,13 @@ class Order extends Model
 
     public static function createFromProduct(Product $product, int $quantity, int $userId): void
     {
-        $order = new self();
+        $order = new self;
         $order->setUserId($userId);
         $order->setState('pending');
         $order->setTotalPrice($product->getPrice() * $quantity);
         $order->save();
 
-        $item = new Item();
+        $item = new Item;
         $item->setQuantity($quantity);
         $item->setPrice($product->getPrice());
         $item->setProductId($product->getId());
