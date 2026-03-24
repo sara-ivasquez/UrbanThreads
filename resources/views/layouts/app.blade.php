@@ -41,6 +41,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cart.index') }}">
+                                <i class="bi bi-cart3"></i> {{ __('app.cart.title') }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.show') }}">
                                 <i class="bi bi-person"></i> {{ __('app.my_profile') }}
                             </a>
