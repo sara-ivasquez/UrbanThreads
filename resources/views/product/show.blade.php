@@ -87,13 +87,11 @@
                             @if ($viewData['product']->getState() == 'active' && $viewData['product']->getStock() > 0)
                                 <div class="card mt-3">
                                     <div class="card-header">
-                                        {{ __('app.order.purchase.card_title') }}
+                                        {{ __('app.cart.add_to_cart') }}
                                     </div>
                                     <div class="card-body">
-                                        <form action="{{ route('order.purchase') }}" method="POST">
+                                        <form action="{{ route('cart.add', ['id' => $viewData['product']->getId()]) }}" method="POST">
                                             @csrf
-                                            <input type="hidden" name="product_id" value="{{ $viewData['product']->getId() }}">
-
                                             <div class="mb-3">
                                                 <label for="quantity" class="form-label">
                                                     {{ __('app.order.purchase.quantity') }}
@@ -111,7 +109,7 @@
                                             </div>
 
                                             <button type="submit" class="btn btn-primary">
-                                                {{ __('app.order.purchase.button') }}
+                                                <i class="bi bi-cart-plus me-1"></i> {{ __('app.cart.add') }}
                                             </button>
                                         </form>
                                     </div>
@@ -137,21 +135,6 @@
                                 <h5 class="mb-0">{{ __('app.review.list.title') }}</h5>
                             </div>
                             <div class="card-body">
-                                @if (session('success'))
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        {{ session('success') }}
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                @endif
-
-                                @if ($errors->any())
-                                    <ul class="alert alert-danger list-unstyled">
-                                        @foreach ($errors->all() as $error)
-                                            <li>- {{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-
                                 @auth
                                     <div class="mb-4">
                                         @include('components.review.form', ['product' => $viewData['product']])

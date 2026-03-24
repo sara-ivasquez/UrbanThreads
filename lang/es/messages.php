@@ -15,6 +15,7 @@ return [
     'error' => [
         'insufficient_funds' => 'Fondos insuficientes. Tu presupuesto es $:budget, pero el costo total es $:total',
         'stock_not_available' => 'No hay suficiente stock disponible para el producto seleccionado.',
+        'purchase_failed' => 'Ocurrió un error al procesar tu compra. Intenta de nuevo.',
     ],
 
     'review' => [
