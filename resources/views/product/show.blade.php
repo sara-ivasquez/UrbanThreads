@@ -13,6 +13,23 @@
             </div>
 
             <div class="card-body">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="row">
                     <div class="col-md-4 text-center">
                         <img
@@ -72,7 +89,7 @@
                             @if ($viewData['product']->getState() == 'active' && $viewData['product']->getStock() > 0)
                                 <div class="card mt-3">
                                     <div class="card-header">
-                                        Comprar producto
+                                        {{ __('app.order.purchase.card_title') }}
                                     </div>
                                     <div class="card-body">
                                         <form action="{{ route('order.purchase') }}" method="POST">
@@ -80,7 +97,9 @@
                                             <input type="hidden" name="product_id" value="{{ $viewData['product']->getId() }}">
 
                                             <div class="mb-3">
-                                                <label for="quantity" class="form-label">{{ __('app.user.orders.quantity') }}</label>
+                                                <label for="quantity" class="form-label">
+                                                    {{ __('app.order.purchase.quantity') }}
+                                                </label>
                                                 <input
                                                     type="number"
                                                     class="form-control"
@@ -94,16 +113,21 @@
                                             </div>
 
                                             <button type="submit" class="btn btn-primary">
-                                                Comprar
+                                                {{ __('app.order.purchase.button') }}
                                             </button>
                                         </form>
                                     </div>
                                 </div>
                             @else
                                 <div class="alert alert-warning mt-3">
-                                    Producto no disponible para compra.
+                                    {{ __('app.order.purchase.unavailable') }}
                                 </div>
                             @endif
+                        @else
+                            <div class="alert alert-info mt-3">
+                                {{ __('app.order.purchase.login_required') }}
+                                <a href="{{ route('login') }}" class="alert-link">{{ __('app.login') }}</a>
+                            </div>
                         @endauth
                     </div>
                 </div>

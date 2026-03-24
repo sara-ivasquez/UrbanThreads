@@ -81,6 +81,19 @@ return [
         'no_reviews' => 'Aún no hay reseñas. ¡Sé el primero en compartir tu opinión!',
     ],
 
+    'order' => [
+        'purchase' => [
+            'card_title' => 'Comprar producto',
+            'quantity' => 'Cantidad',
+            'button' => 'Comprar',
+            'unavailable' => 'Producto no disponible para compra.',
+            'login_required' => 'Debes iniciar sesión para realizar una compra.',
+            'success' => 'La compra fue realizada correctamente.',
+            'insufficient_stock' => 'La cantidad solicitada supera el stock disponible.',
+            'product_inactive' => 'El producto no se encuentra disponible para compra.',
+        ],
+    ],
+
     'user' => [
         'show' => [
             'title_suffix' => 'Mi Perfil',
