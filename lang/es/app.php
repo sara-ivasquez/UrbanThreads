@@ -76,14 +76,28 @@ return [
         ],
     ],
 
-    'reviews' => [
-        'title' => 'Reseñas de Clientes',
-        'qualification' => 'Calificación',
-        'select_qualification' => 'Seleccione una calificación',
-        'description' => 'Descripción',
-        'save' => 'Guardar reseña',
-        'login_required' => 'Debes iniciar sesión para dejar una reseña.',
-        'no_reviews' => 'Aún no hay reseñas. ¡Sé el primero en compartir tu opinión!',
+    'review' => [
+        'form' => [
+            'add_review' => 'Agregar reseña',
+            'qualification' => 'Calificación',
+            'select_rating' => 'Selecciona una calificación',
+            'label_review' => 'Reseña',
+            'review_placeholder' => 'Escribe tu opinión sobre el producto...',
+            'submit' => 'Guardar reseña',
+            'login_to_review' => 'Debes iniciar sesión para escribir una reseña.',
+            'rating' => [
+                'excellent' => 'Excelente',
+                'very_good' => 'Muy buena',
+                'good' => 'Buena',
+                'fair' => 'Regular',
+                'poor' => 'Mala',
+            ],
+        ],
+        'list' => [
+            'title' => 'Reseñas de Clientes',
+            'rating' => 'Calificación',
+            'no_reviews' => 'Aún no hay reseñas. ¡Sé el primero en compartir tu opinión!',
+        ],
     ],
 
     'order' => [

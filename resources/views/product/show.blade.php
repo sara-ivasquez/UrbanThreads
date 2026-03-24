@@ -137,6 +137,21 @@
                                 <h5 class="mb-0">{{ __('app.review.list.title') }}</h5>
                             </div>
                             <div class="card-body">
+                                @if (session('success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ session('success') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                @endif
+
+                                @if ($errors->any())
+                                    <ul class="alert alert-danger list-unstyled">
+                                        @foreach ($errors->all() as $error)
+                                            <li>- {{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+
                                 @auth
                                     <div class="mb-4">
                                         @include('components.review.form', ['product' => $viewData['product']])

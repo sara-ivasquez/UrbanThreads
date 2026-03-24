@@ -32,4 +32,3 @@ return [
 
     'welcome_user' => 'Bienvenido, :name',
 ];
-

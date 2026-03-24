@@ -1,14 +1,14 @@
 <?php
- 
+
 /**
  * Developed by [tu nombre].
  */
- 
+
 namespace App\Http\Requests\Admin;
- 
+
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
- 
+
 class ProductRequest extends FormRequest
 {
     /**
@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
             'state' => 'nullable|string|in:active,inactive',
         ];
     }
- 
+
     /**
      * Get custom messages for validator errors.
      *
