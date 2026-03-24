@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Sara Vasquez
  */
@@ -71,6 +72,7 @@ class Purchase
 
             if (! $stockAvailable || $total <= 0) {
                 $order->delete();
+
                 return [
                     'status' => 'error',
                 ];
@@ -96,6 +98,7 @@ class Purchase
                 }
                 $order->delete();
             }
+
             return [
                 'status' => 'error',
             ];

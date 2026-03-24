@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Franchesca Garcia
  */
@@ -6,6 +7,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use App\Utils\Purchase;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -64,7 +66,7 @@ class CartController extends Controller
             return redirect()->route('cart.index');
         }
 
-        /** @var \App\Models\User $user */
+        /** @var User $user */
         $user = Auth::user();
         $result = Purchase::process($user->getId(), $productsInSession);
 

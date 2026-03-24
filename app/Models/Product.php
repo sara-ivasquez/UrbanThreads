@@ -175,10 +175,11 @@ class Product extends Model
 
     public static function sumPricesByQuantities(Collection $products, array $productsInSession): int
     {
-    $total = 0;
-    foreach ($products as $product) {
-        $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
-    }
-    return $total;
+        $total = 0;
+        foreach ($products as $product) {
+            $total = $total + ($product->getPrice() * $productsInSession[$product->getId()]);
+        }
+
+        return $total;
     }
 }
