@@ -67,7 +67,7 @@
                     <div class="col-md-4 col-lg-3 mb-4">
                         <div class="card h-100">
                             <!-- Product Image -->
-                            <img src="{{ asset('img/' . $product->getImage()) }}"
+                            <img src="{{ asset('storage/' . $product->getImage()) }}"
                                 class="card-img-top img-fluid"
                                 style="height: 180px; object-fit: cover;"
                                 alt="{{ $product->getTitle() }}">

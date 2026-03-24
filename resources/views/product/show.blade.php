@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-md-4 text-center">
                         <img
-                            src="{{ asset('img/' . $viewData['product']->getImage()) }}"
+                            src="{{ asset('storage/' . $viewData['product']->getImage()) }}"
                             class="img-fluid rounded"
                             alt="{{ $viewData['product']->getTitle() }}"
                         >

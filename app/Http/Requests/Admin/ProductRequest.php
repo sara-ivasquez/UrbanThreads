@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Developed by [tu nombre].
+ * Sara Vasquez .
  */
 
 namespace App\Http\Requests\Admin;
@@ -22,7 +22,7 @@ class ProductRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'category_id' => 'required|integer|exists:categories,id',
-            'image' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'price' => 'required|integer|min:0',
             'stock' => 'required|integer|min:0',
             'state' => 'nullable|string|in:active,inactive',
