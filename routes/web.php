@@ -8,6 +8,7 @@ $productControllerRoute = 'App\Http\Controllers\ProductController';
 $userControllerRoute = 'App\Http\Controllers\UserController';
 $adminHomeControllerRoute = 'App\Http\Controllers\Admin\HomeController';
 $orderControllerRoute = 'App\Http\Controllers\OrderController';
+$reviewControllerRoute = 'App\Http\Controllers\ReviewController';
 
 // Home Controller routes
 Route::get('/', $homeControllerRoute.'@index')->name('home.index');
@@ -17,10 +18,11 @@ Route::get('/product', $productControllerRoute.'@index')->name('product.index');
 Route::get('/product/show/{id}', $productControllerRoute.'@show')->name('product.show');
 
 // User Controller routes (final user - require login)
-Route::middleware('auth')->group(function () use ($userControllerRoute, $orderControllerRoute) {
+Route::middleware('auth')->group(function () use ($userControllerRoute, $orderControllerRoute, $reviewControllerRoute) {
     Route::get('/user/profile', $userControllerRoute.'@show')->name('user.show');
     Route::get('/user/orders', $userControllerRoute.'@orders')->name('user.orders');
     Route::post('/order/purchase', $orderControllerRoute.'@purchase')->name('order.purchase');
+    Route::post('/review/save', $reviewControllerRoute.'@save')->name('review.save');
 });
 
 // Admin Home Controller routes
@@ -47,6 +49,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/category', $adminCategoryControllerRoute.'@index')->name('admin.category.index');
     Route::get('/admin/category/create', $adminCategoryControllerRoute.'@create')->name('admin.category.create');
     Route::post('/admin/category/save', $adminCategoryControllerRoute.'@save')->name('admin.category.save');
+    Route::get('/admin/category/show/{id}', $adminCategoryControllerRoute.'@show')->name('admin.category.show');
     Route::get('/admin/category/edit/{id}', $adminCategoryControllerRoute.'@edit')->name('admin.category.edit');
     Route::post('/admin/category/update/{id}', $adminCategoryControllerRoute.'@update')->name('admin.category.update');
     Route::get('/admin/category/disable/{id}', $adminCategoryControllerRoute.'@disable')->name('admin.category.disable');

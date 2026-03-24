@@ -21,13 +21,11 @@
                 @endif
 
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                    <ul class="alert alert-danger list-unstyled">
+                        @foreach ($errors->all() as $error)
+                            <li>- {{ $error }}</li>
+                        @endforeach
+                    </ul>
                 @endif
 
                 <div class="row">
@@ -136,24 +134,37 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header bg-light">
-                                <h5 class="mb-0">{{ __('app.reviews.title') }}</h5>
+                                <h5 class="mb-0">{{ __('app.review.list.title') }}</h5>
                             </div>
                             <div class="card-body">
-                                @if (count($viewData['reviews']) > 0)
-                                    @foreach ($viewData['reviews'] as $review)
-                                        <div class="mb-3 p-3 bg-light rounded">
-                                            <div class="d-flex justify-content-between">
-                                                <strong>{{ $review->getQualification() }}/5 ⭐</strong>
-                                                <small class="text-muted">{{ $review->getCreatedAt() }}</small>
-                                            </div>
-                                            <p class="mb-0 mt-2">{{ $review->getDescription() }}</p>
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <div class="alert alert-info">
-                                        {{ __('app.reviews.no_reviews') }}
+                                @if (session('success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ session('success') }}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                 @endif
+
+                                @if ($errors->any())
+                                    <ul class="alert alert-danger list-unstyled">
+                                        @foreach ($errors->all() as $error)
+                                            <li>- {{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+
+                                @auth
+                                    <div class="mb-4">
+                                        @include('components.review.form', ['product' => $viewData['product']])
+                                    </div>
+                                    <hr>
+                                @else
+                                    <div class="alert alert-info mb-4">
+                                        {{ __('app.review.form.login_to_review') }}
+                                        <a href="{{ route('login') }}" class="alert-link">{{ __('app.login') }}</a>
+                                    </div>
+                                @endauth
+
+                                @include('components.review.list', ['reviews' => $viewData['reviews']])
                             </div>
                         </div>
                     </div>
