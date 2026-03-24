@@ -16,7 +16,7 @@ class CategoryController extends Controller
 {
     public function index(): View
     {
-        $categories = Category::where('state', 'active')->get();
+        $categories = Category::all();
 
         $viewData = [
             'title' => __('app.categories.index.title'),
@@ -44,22 +44,13 @@ class CategoryController extends Controller
             'description' => 'required|string',
         ]);
 
-        Category::create($request->only(['name', 'description']));
+        Category::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'state' => 'active',
+        ]);
 
         return redirect()->route('admin.category.index');
-    }
-
-    public function show(int $id): View
-    {
-        $category = Category::findOrFail($id);
-
-        $viewData = [
-            'title' => __('app.categories.show.title'),
-            'subtitle' => __('app.categories.show.subtitle'),
-            'category' => $category,
-        ];
-
-        return view('admin.category.show')->with('viewData', $viewData);
     }
 
     public function edit(int $id): View
@@ -85,7 +76,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->update($request->only(['name', 'description']));
 
-        return redirect()->route('admin.category.show', ['id' => $category->getId()]);
+        return redirect()->route('admin.category.index');
     }
 
     public function disable(int $id): RedirectResponse

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Sara vasquez
+ * Sara Vasquez
  */
 
 namespace App\Http\Controllers\Admin;
@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -38,10 +39,27 @@ class ProductController extends Controller
 
     public function save(ProductRequest $request): RedirectResponse
     {
-        Product::create($request->validated());
+        $product = new Product;
+        $product->setTitle($request->validated()['title']);
+        $product->setDescription($request->validated()['description']);
+        $product->setPrice($request->validated()['price']);
+        $product->setStock($request->validated()['stock']);
+        $product->setCategoryId($request->validated()['category_id']);
+        $product->setImage('default.png');
+        $product->save();
+
+        if ($request->hasFile('image')) {
+            $imageName = $product->getId().'.'.$request->file('image')->extension();
+            Storage::disk('public')->put(
+                $imageName,
+                file_get_contents($request->file('image')->getRealPath())
+            );
+            $product->setImage($imageName);
+            $product->save();
+        }
 
         return redirect()->route('admin.product.index')
-            ->with('success', __('messages.product.created'));
+            ->with('success', __('messages.success.product_created'));
     }
 
     public function show(int $id): View
@@ -70,10 +88,26 @@ class ProductController extends Controller
     public function update(ProductRequest $request, int $id): RedirectResponse
     {
         $product = Product::findOrFail($id);
-        $product->update($request->validated());
+        $product->setTitle($request->validated()['title']);
+        $product->setDescription($request->validated()['description']);
+        $product->setPrice($request->validated()['price']);
+        $product->setStock($request->validated()['stock']);
+        $product->setCategoryId($request->validated()['category_id']);
+        $product->setState($request->validated()['state']);
+        $product->save();
+
+        if ($request->hasFile('image')) {
+            $imageName = $product->getId().'.'.$request->file('image')->extension();
+            Storage::disk('public')->put(
+                $imageName,
+                file_get_contents($request->file('image')->getRealPath())
+            );
+            $product->setImage($imageName);
+            $product->save();
+        }
 
         return redirect()->route('admin.product.show', ['id' => $product->getId()])
-            ->with('success', __('messages.product.updated'));
+            ->with('success', __('messages.success.product_updated'));
     }
 
     public function disable(int $id): RedirectResponse
@@ -83,7 +117,7 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->route('admin.product.show', ['id' => $product->getId()])
-            ->with('success', __('messages.product.disabled'));
+            ->with('success', __('messages.success.product_disabled'));
     }
 
     public function enable(int $id): RedirectResponse
@@ -93,6 +127,6 @@ class ProductController extends Controller
         $product->save();
 
         return redirect()->route('admin.product.show', ['id' => $product->getId()])
-            ->with('success', __('messages.product.enabled'));
+            ->with('success', __('messages.success.product_enabled'));
     }
 }

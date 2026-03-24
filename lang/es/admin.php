@@ -2,7 +2,6 @@
 
 return [
     'title' => 'Panel de Administración - Urban Threads',
-
     'dashboard' => [
         'title' => 'Panel de Administración',
         'subtitle' => 'Bienvenido al panel de administración',
@@ -12,8 +11,13 @@ return [
             'view' => 'Ver Productos',
             'create' => 'Crear Producto',
         ],
+        'categories' => [
+            'title' => 'Categorías',
+            'description' => 'Gestiona las categorías de productos de la tienda.',
+            'view' => 'Ver Categorías',
+            'create' => 'Crear Categoría',
+        ],
     ],
-
     'products' => [
         'list' => [
             'title' => 'Productos - Urban Threads',
@@ -76,6 +80,34 @@ return [
                 'submit' => 'Actualizar Producto',
                 'cancel' => 'Cancelar',
             ],
+        ],
+    ],
+    'reviews' => [
+        'index' => [
+            'title' => 'Reporte de Reseñas',
+            'subtitle' => 'Estadísticas de reseñas por producto',
+            'no_reviews' => 'No hay reseñas registradas.',
+            'product' => 'Producto',
+            'total' => 'Total Reseñas',
+            'average' => 'Promedio',
+            'min' => 'Mínimo',
+            'max' => 'Máximo',
+        ],
+    ],
+    'orders' => [
+        'index' => [
+            'title' => 'Órdenes para Despachar',
+            'subtitle' => 'Listado de órdenes de clientes',
+            'no_orders' => 'No hay órdenes registradas.',
+            'order' => 'Orden',
+            'customer' => 'Cliente',
+            'address' => 'Dirección',
+            'date' => 'Fecha',
+            'total' => 'Total',
+            'product' => 'Producto',
+            'quantity' => 'Cantidad',
+            'price' => 'Precio Unitario',
+            'subtotal' => 'Subtotal',
         ],
     ],
 ];

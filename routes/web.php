@@ -7,6 +7,8 @@ $homeControllerRoute = 'App\Http\Controllers\HomeController';
 $productControllerRoute = 'App\Http\Controllers\ProductController';
 $userControllerRoute = 'App\Http\Controllers\UserController';
 $adminHomeControllerRoute = 'App\Http\Controllers\Admin\HomeController';
+$cartControllerRoute = 'App\Http\Controllers\CartController';
+$reviewControllerRoute = 'App\Http\Controllers\ReviewController';
 
 // Home Controller routes
 Route::get('/', $homeControllerRoute.'@index')->name('home.index');
@@ -15,15 +17,21 @@ Route::get('/', $homeControllerRoute.'@index')->name('home.index');
 Route::get('/product', $productControllerRoute.'@index')->name('product.index');
 Route::get('/product/show/{id}', $productControllerRoute.'@show')->name('product.show');
 
-// User Controller routes (final user- requiere login)
-Route::middleware('auth')->group(function () use ($userControllerRoute) {
+// Cart Controller routes
+Route::get('/cart', $cartControllerRoute.'@index')->name('cart.index');
+
+// User Controller routes (final user - require login)
+Route::middleware('auth')->group(function () use ($userControllerRoute, $cartControllerRoute, $reviewControllerRoute) {
     Route::get('/user/profile', $userControllerRoute.'@show')->name('user.show');
     Route::get('/user/orders', $userControllerRoute.'@orders')->name('user.orders');
+    Route::post('/cart/add/{id}', $cartControllerRoute.'@add')->name('cart.add');
+    Route::get('/cart/delete', $cartControllerRoute.'@delete')->name('cart.delete');
+    Route::post('/cart/purchase', $cartControllerRoute.'@purchase')->name('cart.purchase');
+    Route::post('/review/save', $reviewControllerRoute.'@save')->name('review.save');
 });
 
 // Admin Home Controller routes
-Route::middleware('admin')->group(function () {
-    $adminHomeControllerRoute = 'App\Http\Controllers\Admin\HomeController';
+Route::middleware('admin')->group(function () use ($adminHomeControllerRoute) {
     Route::get('/admin/home', $adminHomeControllerRoute.'@index')->name('admin.home.index');
 });
 
@@ -53,4 +61,14 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/category/enable/{id}', $adminCategoryControllerRoute.'@enable')->name('admin.category.enable');
 });
 
+// Admin Review Controller routes
+Route::middleware('admin')->group(function () {
+    $adminReviewControllerRoute = 'App\Http\Controllers\Admin\ReviewController';
+    Route::get('/admin/review', $adminReviewControllerRoute.'@index')->name('admin.review.index');
+});
+// Admin Order Controller routes
+Route::middleware('admin')->group(function () {
+    $adminOrderControllerRoute = 'App\Http\Controllers\Admin\OrderController';
+    Route::get('/admin/order', $adminOrderControllerRoute.'@index')->name('admin.order.index');
+});
 Auth::routes();

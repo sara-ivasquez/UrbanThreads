@@ -27,12 +27,13 @@ class UserController extends Controller
     public function orders(): View
     {
         $user = User::findOrFail(Auth::id());
+
         $viewData = [
             'title' => __('app.user.orders.title'),
             'subtitle' => __('app.user.orders.subtitle'),
-            'orders' => Order::with(['items.product'])->where('user_id', $user->getId())->get(),
+            'orders' => Order::getOrdersByUserId($user->getId()),
         ];
 
-        return view('user.orders')->with('viewData', $viewData);
+        return view('myaccount.orders')->with('viewData', $viewData);
     }
 }

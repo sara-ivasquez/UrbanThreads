@@ -59,11 +59,14 @@ return [
             'filter_by_category' => 'Filtrar por Categoría',
             'all_categories' => 'Todas las Categorías',
             'filter' => 'Filtrar',
+            'search_by_name' => 'Buscar por nombre',
+            'search_placeholder' => 'Buscar producto...',
         ],
         'show' => [
             'title_suffix' => 'Urban Threads',
             'description' => 'Descripción',
             'details' => 'Detalles del Producto',
+            'price' => 'Precio',
             'category' => 'Categoría',
             'stock' => 'Stock',
             'state' => 'Estado',
@@ -73,9 +76,41 @@ return [
         ],
     ],
 
-    'reviews' => [
-        'title' => 'Reseñas de Clientes',
-        'no_reviews' => 'Aún no hay reseñas. ¡Sé el primero en compartir tu opinión!',
+    'review' => [
+        'form' => [
+            'add_review' => 'Agregar reseña',
+            'qualification' => 'Calificación',
+            'select_rating' => 'Selecciona una calificación',
+            'label_review' => 'Reseña',
+            'review_placeholder' => 'Escribe tu opinión sobre el producto...',
+            'submit' => 'Guardar reseña',
+            'login_to_review' => 'Debes iniciar sesión para escribir una reseña.',
+            'rating' => [
+                'excellent' => 'Excelente',
+                'very_good' => 'Muy buena',
+                'good' => 'Buena',
+                'fair' => 'Regular',
+                'poor' => 'Mala',
+            ],
+        ],
+        'list' => [
+            'title' => 'Reseñas de Clientes',
+            'rating' => 'Calificación',
+            'no_reviews' => 'Aún no hay reseñas. ¡Sé el primero en compartir tu opinión!',
+        ],
+    ],
+
+    'order' => [
+        'purchase' => [
+            'card_title' => 'Comprar producto',
+            'quantity' => 'Cantidad',
+            'button' => 'Comprar',
+            'unavailable' => 'Producto no disponible para compra.',
+            'login_required' => 'Debes iniciar sesión para realizar una compra.',
+            'success' => 'La compra fue realizada correctamente.',
+            'insufficient_stock' => 'La cantidad solicitada supera el stock disponible.',
+            'product_inactive' => 'El producto no se encuentra disponible para compra.',
+        ],
     ],
 
     'user' => [
@@ -92,6 +127,7 @@ return [
             'subtitle' => 'Historial de pedidos',
             'order_number' => 'Pedido',
             'date' => 'Fecha',
+            'state' => 'Estado',
             'total' => 'Total',
             'item_id' => 'ID del Artículo',
             'product_name' => 'Nombre del Producto',
@@ -124,7 +160,12 @@ return [
             'id' => 'ID',
             'name' => 'Nombre',
             'description' => 'Descripción',
+            'state' => 'Estado',
             'actions' => 'Acciones',
+        ],
+        'state' => [
+            'active' => 'Activo',
+            'disabled' => 'Deshabilitado',
         ],
         'actions' => [
             'show' => 'Ver',
@@ -134,6 +175,31 @@ return [
             'update' => 'Actualizar',
             'cancel' => 'Cancelar',
             'back' => 'Volver',
+        ],
+    ],
+    'cart' => [
+        'title' => 'Carrito',
+        'add' => 'Agregar al carrito',
+        'add_to_cart' => 'Agregar al carrito',
+        'back_to_products' => 'Volver a productos',
+        'empty' => 'Tu carrito está vacío',
+        'total' => 'Total',
+        'confirm_purchase' => 'Confirmar compra',
+        'clear' => 'Vaciar carrito',
+        'table' => [
+            'product' => 'Producto',
+            'price' => 'Precio',
+            'quantity' => 'Cantidad',
+            'subtotal' => 'Subtotal',
+        ],
+        'purchase' => [
+            'success_title' => '¡Compra exitosa!',
+            'success_message' => 'Tu pedido ha sido procesado correctamente.',
+            'order_id' => 'Número de orden',
+            'total' => 'Total pagado',
+            'state' => 'Estado',
+            'view_orders' => 'Ver mis pedidos',
+            'continue_shopping' => 'Seguir comprando',
         ],
     ],
 ];
