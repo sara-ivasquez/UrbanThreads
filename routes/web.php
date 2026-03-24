@@ -61,4 +61,14 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/category/enable/{id}', $adminCategoryControllerRoute.'@enable')->name('admin.category.enable');
 });
 
+// Admin Review Controller routes
+Route::middleware('admin')->group(function () {
+    $adminReviewControllerRoute = 'App\Http\Controllers\Admin\ReviewController';
+    Route::get('/admin/review', $adminReviewControllerRoute.'@index')->name('admin.review.index');
+});
+// Admin Order Controller routes
+Route::middleware('admin')->group(function () {
+    $adminOrderControllerRoute = 'App\Http\Controllers\Admin\OrderController';
+    Route::get('/admin/order', $adminOrderControllerRoute.'@index')->name('admin.order.index');
+});
 Auth::routes();

@@ -82,4 +82,32 @@ return [
             ],
         ],
     ],
+    'reviews' => [
+        'index' => [
+            'title' => 'Reporte de Reseñas',
+            'subtitle' => 'Estadísticas de reseñas por producto',
+            'no_reviews' => 'No hay reseñas registradas.',
+            'product' => 'Producto',
+            'total' => 'Total Reseñas',
+            'average' => 'Promedio',
+            'min' => 'Mínimo',
+            'max' => 'Máximo',
+        ],
+    ],
+    'orders' => [
+        'index' => [
+            'title' => 'Órdenes para Despachar',
+            'subtitle' => 'Listado de órdenes de clientes',
+            'no_orders' => 'No hay órdenes registradas.',
+            'order' => 'Orden',
+            'customer' => 'Cliente',
+            'address' => 'Dirección',
+            'date' => 'Fecha',
+            'total' => 'Total',
+            'product' => 'Producto',
+            'quantity' => 'Cantidad',
+            'price' => 'Precio Unitario',
+            'subtotal' => 'Subtotal',
+        ],
+    ],
 ];

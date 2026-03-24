@@ -126,4 +126,14 @@ class Review extends Model
             ->orderBy('created_at', 'desc')
             ->get();
     }
+
+    public static function getProductReviewsReport(): Collection
+    {
+        return self::query()
+            ->selectRaw('product_id, products.title, COUNT(*) as reviews_count, AVG(qualification) as reviews_avg_qualification, MIN(qualification) as reviews_min_qualification, MAX(qualification) as reviews_max_qualification')
+            ->join('products', 'reviews.product_id', '=', 'products.id')
+            ->groupBy('product_id', 'products.title')
+            ->orderByDesc('reviews_avg_qualification')
+            ->get();
+    }
 }

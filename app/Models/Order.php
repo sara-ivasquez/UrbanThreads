@@ -101,4 +101,9 @@ class Order extends Model
     {
         return self::with(['items.product'])->where('user_id', $userId)->get();
     }
+
+    public static function getAllOrdersWithDetails(): Collection
+    {
+        return self::with(['items.product', 'user'])->orderByDesc('created_at')->get();
+    }
 }
