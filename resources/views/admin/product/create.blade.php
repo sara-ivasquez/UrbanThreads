@@ -12,7 +12,7 @@
                 <h5>{{ $viewData['title'] }}</h5>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('admin.product.save') }}">
+                <form method="POST" action="{{ route('admin.product.save') }}" enctype="multipart/form-data">
                     @csrf
 
                     <!-- Title -->
@@ -56,10 +56,10 @@
                     <!-- Image -->
                     <div class="mb-3">
                         <label for="image" class="form-label">{{ __('admin.products.create.form.image') }}</label>
-                        <input type="text" class="form-control @error('image') is-invalid @enderror"
-                            id="image" name="image" value="{{ old('image') }}">
+                        <input type="file" class="form-control @error('image') is-invalid @enderror"
+                              id="image" name="image">
                         @error('image')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                              <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 

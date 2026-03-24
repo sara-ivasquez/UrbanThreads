@@ -12,7 +12,7 @@
                 <h5>{{ $viewData['title'] }}</h5>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('admin.product.update', ['id' => $viewData['product']->getId()]) }}">
+                <form method="POST" action="{{ route('admin.product.update', ['id' => $viewData['product']->getId()]) }}" enctype="multipart/form-data">
                     @csrf
 
                     <!-- Title -->
@@ -57,12 +57,17 @@
                     <!-- Image -->
                     <div class="mb-3">
                         <label for="image" class="form-label">{{ __('admin.products.edit.form.image') }}</label>
-                        <input type="text" class="form-control @error('image') is-invalid @enderror"
-                            id="image" name="image"
-                            value="{{ old('image', $viewData['product']->getImage()) }}">
-                        @error('image')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    @if ($viewData['product']->getImage())
+                      <div class="mb-2">
+                         <img src="{{ asset('storage/' . $viewData['product']->getImage()) }}"
+                            class="img-thumbnail" style="height: 100px;">
+                      </div>
+                    @endif
+                      <input type="file" class="form-control @error('image') is-invalid @enderror"
+                         id="image" name="image">
+                    @error('image')
+                       <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                     </div>
 
                     <!-- Price -->
