@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
-
 /**
  * Franchesca Garcia
  */
+
+namespace App\Http\Controllers;
 
 use App\Http\Requests\ReviewRequest;
 use App\Models\Review;
@@ -14,11 +14,16 @@ class ReviewController extends Controller
 {
     public function save(ReviewRequest $request): RedirectResponse
     {
+        $data = $request->validated();
+
+        /** @var User $user */
+        $user = auth()->user();
+
         $review = new Review;
-        $review->setQualification((int) $request->input('qualification'));
-        $review->setDescription($request->string('description')->toString());
-        $review->setProductId((int) $request->input('product_id'));
-        $review->setUserId((int) auth()->id());
+        $review->setQualification($data['qualification']);
+        $review->setDescription($data['description']);
+        $review->setProductId($data['product_id']);
+        $review->setUserId($user->getId());
         $review->save();
 
         return redirect()

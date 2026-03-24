@@ -1,7 +1,7 @@
 <div class="review-list-container">
     <h5 class="mb-3">{{ __('app.review.list.title') }}</h5>
 
-    @if (count($reviews) > 0)
+    @if ($reviews->count() > 0)
         @foreach ($reviews as $review)
             <div class="card mb-2">
                 <div class="card-body">
