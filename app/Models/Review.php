@@ -6,8 +6,6 @@ namespace App\Models;
  * Franchesca Garcia
  */
 
-use App\Models\Product;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
