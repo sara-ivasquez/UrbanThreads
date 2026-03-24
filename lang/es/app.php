@@ -66,6 +66,7 @@ return [
             'title_suffix' => 'Urban Threads',
             'description' => 'Descripción',
             'details' => 'Detalles del Producto',
+            'price' => 'Precio',
             'category' => 'Categoría',
             'stock' => 'Stock',
             'state' => 'Estado',
@@ -78,6 +79,19 @@ return [
     'reviews' => [
         'title' => 'Reseñas de Clientes',
         'no_reviews' => 'Aún no hay reseñas. ¡Sé el primero en compartir tu opinión!',
+    ],
+
+    'order' => [
+        'purchase' => [
+            'card_title' => 'Comprar producto',
+            'quantity' => 'Cantidad',
+            'button' => 'Comprar',
+            'unavailable' => 'Producto no disponible para compra.',
+            'login_required' => 'Debes iniciar sesión para realizar una compra.',
+            'success' => 'La compra fue realizada correctamente.',
+            'insufficient_stock' => 'La cantidad solicitada supera el stock disponible.',
+            'product_inactive' => 'El producto no se encuentra disponible para compra.',
+        ],
     ],
 
     'user' => [
@@ -94,6 +108,7 @@ return [
             'subtitle' => 'Historial de pedidos',
             'order_number' => 'Pedido',
             'date' => 'Fecha',
+            'state' => 'Estado',
             'total' => 'Total',
             'item_id' => 'ID del Artículo',
             'product_name' => 'Nombre del Producto',
