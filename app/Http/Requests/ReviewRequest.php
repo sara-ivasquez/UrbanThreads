@@ -2,6 +2,10 @@
 
 namespace App\Http\Requests;
 
+/**
+ * Franchesca Garcia
+ */
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class ReviewRequest extends FormRequest
@@ -14,8 +18,8 @@ class ReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'qualification' => 'required|integer|min:1|max:5',
             'description' => 'required|string|max:1000',
+            'qualification' => 'required|integer|min:1|max:5',
             'product_id' => 'required|integer|exists:products,id',
         ];
     }
