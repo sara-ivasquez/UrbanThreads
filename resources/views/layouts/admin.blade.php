@@ -23,11 +23,6 @@
             </button>
             <div class="collapse navbar-collapse" id="adminNavbar">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.home.index') }}">
-                            <i class="bi bi-house-door"></i> {{ __('admin.dashboard.title') }}
-                        </a>
-                    </li>
                     <!-- Products -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -63,6 +58,18 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <!-- Reviews -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.review.index') }}">
+                            <i class="bi bi-star"></i> {{ __('admin.reviews.index.title') }}
+                        </a>
+                    </li>
+                    <!-- Orders -->
+                    <li class="nav-item">
+                       <a class="nav-link" href="{{ route('admin.order.index') }}">
+                         <i class="bi bi-box-seam"></i> {{ __('admin.orders.index.title') }}
+                        </a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
