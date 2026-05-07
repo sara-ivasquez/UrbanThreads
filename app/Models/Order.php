@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Models;
+/**
+ * Franchesca Garcia
+ */
 
-// Made by: Franchesca Garcia
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,22 +12,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-/**
- * ORDER ATTRIBUTES
- * $this->attributes['id'] - int - contains the primary key of the order
- * $this->attributes['totalPrice'] - int - contains the total price of the order
- * $this->attributes['state'] - string - contains the state of the order
- * $this->attributes['user_id'] - int - contains the foreign key of the user
- * $this->attributes['created_at'] - timestamp - contains the record creation date
- * $this->attributes['updated_at'] - timestamp - contains the record update date
- *
- * $this->items - Collection<Item> - contains the associated items
- * $this->user - User - contains the associated user
- */
 class Order extends Model
 {
     use HasFactory;
 
+    /**
+     * ORDER ATTRIBUTES
+     * $this->attributes['id'] - int - contains the primary key of the order
+     * $this->attributes['totalPrice'] - int - contains the total price of the order
+     * $this->attributes['state'] - string - contains the state of the order
+     * $this->attributes['user_id'] - int - contains the foreign key of the user
+     * $this->attributes['created_at'] - timestamp - contains the record creation date
+     * $this->attributes['updated_at'] - timestamp - contains the record update date
+     *
+     * $this->items - Collection<Item> - contains the associated items
+     * $this->user - User - contains the associated user
+     */
     protected $fillable = [
         'totalPrice',
         'state',

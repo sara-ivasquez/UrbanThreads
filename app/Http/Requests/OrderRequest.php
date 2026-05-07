@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Requests;
+/**
+ * Franchesca Garcia
+ */
 
-// Made by: Franchesca Garcia
+namespace App\Http\Requests;
 
 use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Validator;
 
-class OrderPurchaseRequest extends FormRequest
+class OrderRequest extends FormRequest
 {
     public function authorize(): bool
     {
