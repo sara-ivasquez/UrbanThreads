@@ -7,7 +7,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ProductRequest;
+use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductEditRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
@@ -37,7 +38,7 @@ class ProductController extends Controller
         return view('admin.product.create')->with('viewData', $viewData);
     }
 
-    public function save(ProductRequest $request): RedirectResponse
+    public function save(ProductCreateRequest $request): RedirectResponse
     {
         $product = new Product;
         $product->setTitle($request->validated()['title']);
@@ -85,7 +86,7 @@ class ProductController extends Controller
         return view('admin.product.edit')->with('viewData', $viewData);
     }
 
-    public function update(ProductRequest $request, int $id): RedirectResponse
+    public function update(ProductEditRequest $request, int $id): RedirectResponse
     {
         $product = Product::findOrFail($id);
         $product->setTitle($request->validated()['title']);

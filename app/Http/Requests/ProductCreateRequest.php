@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Sara Vasquez .
+ * Sara Vasquez
  */
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductRequest extends FormRequest
+class ProductCreateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -25,7 +25,6 @@ class ProductRequest extends FormRequest
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'price' => 'required|integer|min:0',
             'stock' => 'required|integer|min:0',
-            'state' => 'nullable|string|in:active,inactive',
         ];
     }
 
@@ -47,7 +46,6 @@ class ProductRequest extends FormRequest
             'stock.required' => 'The stock field is required.',
             'stock.integer' => 'The stock must be an integer.',
             'stock.min' => 'The stock must be at least 0.',
-            'state.in' => 'The state must be either "active" or "inactive".',
         ];
     }
 }

@@ -10,6 +10,7 @@ use App\Models\Item;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
+use Exception;
 
 class Purchase
 {
@@ -89,7 +90,7 @@ class Purchase
                 'order' => $order,
             ];
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             if (isset($order) && $order->exists) {
                 if (isset($items) && ! empty($items)) {
                     foreach ($items as $item) {
