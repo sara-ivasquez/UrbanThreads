@@ -3,6 +3,23 @@
 
 @section('title', $viewData['title'])
 
+@push('breadcrumbs')
+    <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('home.index') }}">
+                        <i class="bi bi-house-door"></i> {{ __('app.home') }}
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ __('app.products_nav') }}
+                </li>
+            </ol>
+        </nav>
+    </div>
+@endpush
+
 @section('content')
     <div class="container">
         <!-- Header Section -->
@@ -16,14 +33,14 @@
         <!-- Filters Section -->
         <div class="row mb-4">
             <!-- Category Filter -->
-            <div class="col-md-6 mb-3">
+            <div class="col-12 col-md-6 mb-3">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0">{{ __('app.products.list.filter_by_category') }}</h5>
                     </div>
                     <div class="card-body">
-                        <form method="GET" action="{{ route('product.index') }}" class="d-flex">
-                            <select name="category" class="form-select me-2">
+                        <form method="GET" action="{{ route('product.index') }}" class="d-flex flex-column flex-sm-row gap-2">
+                            <select name="category" class="form-select">
                                 <option value="">{{ __('app.products.list.all_categories') }}</option>
                                 @foreach($viewData['categories'] as $category)
                                     <option value="{{ $category->getId() }}"
@@ -41,14 +58,14 @@
             </div>
 
             <!-- Search Filter -->
-            <div class="col-md-6 mb-3">
+            <div class="col-12 col-md-6 mb-3">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0">{{ __('app.products.list.search_by_name') }}</h5>
                     </div>
                     <div class="card-body">
-                        <form method="GET" action="{{ route('product.index') }}" class="d-flex">
-                            <input type="text" name="search" class="form-control me-2"
+                        <form method="GET" action="{{ route('product.index') }}" class="d-flex flex-column flex-sm-row gap-2">
+                            <input type="text" name="search" class="form-control"
                                 placeholder="{{ __('app.products.list.search_placeholder') }}"
                                 value="{{ $viewData['searchQuery'] ?? '' }}">
                             <button type="submit" class="btn btn-primary">
@@ -64,7 +81,7 @@
         <div class="row">
             @if(isset($viewData['products']) && count($viewData['products']) > 0)
                 @foreach($viewData['products'] as $product)
-                    <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="col-6 col-md-4 col-lg-3 mb-4">
                         <div class="card h-100">
                             <!-- Product Image -->
                             <img src="{{ asset('storage/' . $product->getImage()) }}"
