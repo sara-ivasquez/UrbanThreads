@@ -2,10 +2,30 @@
 
 @section('title', $viewData['title'])
 
+@push('breadcrumbs')
+    <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('home.index') }}">
+                        <i class="bi bi-house-door"></i> {{ __('app.home') }}
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('product.index') }}">{{ __('app.products_nav') }}</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ $viewData['product']->getTitle() }}
+                </li>
+            </ol>
+        </nav>
+    </div>
+@endpush
+
 @section('content')
     <div class="container my-5">
         <div class="card">
-            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <div class="card-header bg-dark text-white d-flex flex-wrap justify-content-between align-items-center gap-2">
                 <h1 class="fs-5 mb-0">{{ $viewData['product']->getTitle() }}</h1>
                 <a href="{{ route('product.index') }}" class="btn btn-secondary btn-sm">
                     <i class="bi bi-arrow-left"></i> {{ __('app.products.show.back_to_list') }}
@@ -28,18 +48,19 @@
                     </ul>
                 @endif
 
-                <div class="row">
-                    <div class="col-md-4 text-center">
+                <div class="row g-4">
+                    <div class="col-12 col-md-4 text-center">
                         <img
                             src="{{ asset('storage/' . $viewData['product']->getImage()) }}"
-                            class="img-fluid rounded"
+                            class="img-fluid rounded w-100"
+                            style="max-height: 350px; object-fit: cover;"
                             alt="{{ $viewData['product']->getTitle() }}"
                         >
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-12 col-md-8">
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <h5>{{ __('app.products.show.details') }}</h5>
                                 <table class="table table-bordered">
                                     <tbody>
@@ -107,8 +128,7 @@
                                                     required
                                                 >
                                             </div>
-
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-primary w-100">
                                                 <i class="bi bi-cart-plus me-1"></i> {{ __('app.cart.add') }}
                                             </button>
                                         </form>
