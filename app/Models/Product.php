@@ -182,4 +182,12 @@ class Product extends Model
 
         return $total;
     }
+
+    public static function getActiveInStock(): Collection
+    {
+        return self::with('category')
+            ->where('state', 'active')
+            ->where('stock', '>', 0)
+            ->get();
+    }
 }

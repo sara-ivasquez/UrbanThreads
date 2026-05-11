@@ -10,6 +10,10 @@ $adminHomeControllerRoute = 'App\Http\Controllers\Admin\HomeController';
 $cartControllerRoute = 'App\Http\Controllers\CartController';
 $reviewControllerRoute = 'App\Http\Controllers\ReviewController';
 $languageControllerRoute = 'App\Http\Controllers\LanguageController';
+$productApiControllerRoute = 'App\Http\Controllers\Api\ProductApiController';
+
+// API routes
+Route::get('/api/products', $productApiControllerRoute.'@index')->name('api.products.index');
 
 // Language switcher
 Route::get('/lang/{locale}', $languageControllerRoute.'@switchLang')->name('lang.switch');
