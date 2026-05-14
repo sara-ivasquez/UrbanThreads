@@ -66,7 +66,27 @@
                                     <tbody>
                                         <tr>
                                             <th>{{ __('app.products.show.price') }}</th>
-                                            <td>${{ number_format($viewData['product']->getPrice(), 2) }}</td>
+                                            <td>${{ number_format($viewData['product']->getPrice(), 2) }} COP</td>
+                                        </tr>
+                                        <tr>
+                                            <th>USD</th>
+                                            <td>
+                                                @if($viewData['convertedPrices']['USD'])
+                                                    ${{ number_format($viewData['convertedPrices']['USD'], 2) }} USD
+                                                @else
+                                                    <span class="text-muted">N/A</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>EUR</th>
+                                            <td>
+                                                @if($viewData['convertedPrices']['EUR'])
+                                                    €{{ number_format($viewData['convertedPrices']['EUR'], 2) }} EUR
+                                                @else
+                                                    <span class="text-muted">N/A</span>
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th>{{ __('app.products.show.category') }}</th>

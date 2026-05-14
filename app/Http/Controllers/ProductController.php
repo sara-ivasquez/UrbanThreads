@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Sara Vasquez
+ * Franchesca G
  */
 
 namespace App\Http\Controllers;
@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Review;
+use App\Utils\CurrencyConverter;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -49,10 +50,13 @@ class ProductController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
+        $convertedPrices = CurrencyConverter::convert($product->getPrice());
+
         $viewData = [
             'title' => $product->getTitle().' - '.__('app.products.show.title_suffix'),
             'product' => $product,
             'reviews' => $reviews,
+            'convertedPrices' => $convertedPrices,
         ];
 
         return view('product.show')->with('viewData', $viewData);
