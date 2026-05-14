@@ -32,10 +32,7 @@ jobs:
           echo "FILESYSTEM_DISK=public" >> .env
 
       - name: Docker login
-        env:
-          DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
-          DOCKER_PASS: ${{ secrets.DOCKERHUB_PASS }}
-        run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+        run: echo ${{ secrets.DOCKERHUB_PASS }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
 
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_USER }}/urban-threads:latest
