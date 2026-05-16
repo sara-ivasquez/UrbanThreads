@@ -108,6 +108,8 @@ return [
             'quantity' => 'Quantity',
             'price' => 'Unit Price',
             'subtotal' => 'Subtotal',
+            'download_csv' => 'Download CSV',
+            'download_pdf' => 'Download PDF',
         ],
     ],
 ];

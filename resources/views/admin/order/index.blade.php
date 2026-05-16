@@ -9,6 +9,14 @@
                 <h1>{{ $viewData['title'] }}</h1>
                 <h5 class="text-muted">{{ $viewData['subtitle'] }}</h5>
             </div>
+            <div class="d-flex gap-2">
+                <a href="{{ route('admin.order.download.csv') }}" class="btn btn-success">
+                    <i class="bi bi-filetype-csv me-1"></i> {{ __('admin.orders.index.download_csv') }}
+                </a>
+                <a href="{{ route('admin.order.download.pdf') }}" class="btn btn-danger">
+                    <i class="bi bi-filetype-pdf me-1"></i> {{ __('admin.orders.index.download_pdf') }}
+                </a>
+            </div>
         </div>
 
         <div class="card">
