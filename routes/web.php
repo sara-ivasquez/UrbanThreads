@@ -79,8 +79,7 @@ Route::middleware('admin')->group(function () {
 Route::middleware('admin')->group(function () {
     $adminOrderControllerRoute = 'App\Http\Controllers\Admin\OrderController';
     Route::get('/admin/order', $adminOrderControllerRoute.'@index')->name('admin.order.index');
-    Route::get('/admin/order/download/csv', $adminOrderControllerRoute.'@downloadCsv')->name('admin.order.download.csv');
-    Route::get('/admin/order/download/pdf', $adminOrderControllerRoute.'@downloadPdf')->name('admin.order.download.pdf');
+    Route::get('/admin/order/download/{type}', $adminOrderControllerRoute.'@download')->name('admin.order.download');
 });
 Auth::routes();
 

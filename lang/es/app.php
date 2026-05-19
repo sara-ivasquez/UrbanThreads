@@ -67,6 +67,9 @@ return [
             'description' => 'Descripción',
             'details' => 'Detalles del Producto',
             'price' => 'Precio',
+            'usd_price' => 'Precio en USD',
+            'eur_price' => 'Precio en EUR',
+            'not_available' => 'No disponible',
             'category' => 'Categoría',
             'stock' => 'Stock',
             'state' => 'Estado',
@@ -177,6 +180,7 @@ return [
             'back' => 'Volver',
         ],
     ],
+
     'cart' => [
         'title' => 'Carrito',
         'add' => 'Agregar al carrito',
@@ -202,6 +206,7 @@ return [
             'continue_shopping' => 'Seguir comprando',
         ],
     ],
+
     'beauty' => [
         'title' => 'Productos VeneKa Beauty',
         'subtitle' => 'Productos y servicios de belleza de nuestros aliados',

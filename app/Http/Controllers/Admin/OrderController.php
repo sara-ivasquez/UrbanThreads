@@ -1,15 +1,14 @@
 <?php
 
 /**
- * Franchesca Garcia
+ * Franchezca Garcia
  */
 
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\OrderReportInterface;
 use App\Models\Order;
-use App\Services\CsvOrderReport;
-use App\Services\PdfOrderReport;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,12 +25,7 @@ class OrderController extends Controller
         return view('admin.order.index')->with('viewData', $viewData);
     }
 
-    public function downloadCsv(Request $request, CsvOrderReport $report): Response
-    {
-        return $report->generateReport($request);
-    }
-
-    public function downloadPdf(Request $request, PdfOrderReport $report): Response
+    public function download(Request $request, OrderReportInterface $report): Response
     {
         return $report->generateReport($request);
     }
