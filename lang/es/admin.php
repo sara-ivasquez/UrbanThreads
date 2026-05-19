@@ -111,5 +111,16 @@ return [
             'download_csv' => 'Descargar CSV',
             'download_pdf' => 'Descargar PDF',
         ],
+        'report' => [
+            'title' => 'Urban Threads',
+            'subtitle' => 'Reporte de Órdenes',
+            'order_id' => 'ID Orden',
+            'customer' => 'Cliente',
+            'address' => 'Dirección',
+            'date' => 'Fecha',
+            'total' => 'Total',
+            'state' => 'Estado',
+            'footer' => 'Generado por el Panel de Administración de Urban Threads',
+        ],
     ],
 ];

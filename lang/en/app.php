@@ -67,6 +67,9 @@ return [
             'description' => 'Description',
             'details' => 'Product Details',
             'price' => 'Price',
+            'usd_price' => 'USD Price',
+            'eur_price' => 'EUR Price',
+            'not_available' => 'N/A',
             'category' => 'Category',
             'stock' => 'Stock',
             'state' => 'State',
@@ -177,6 +180,7 @@ return [
             'back' => 'Back',
         ],
     ],
+
     'cart' => [
         'title' => 'Cart',
         'add' => 'Add to cart',
@@ -202,6 +206,7 @@ return [
             'continue_shopping' => 'Continue shopping',
         ],
     ],
+
     'beauty' => [
         'title' => 'VeneKa Beauty Products',
         'subtitle' => 'Beauty products and services from our partners',

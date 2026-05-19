@@ -69,22 +69,22 @@
                                             <td>${{ number_format($viewData['product']->getPrice(), 2) }} COP</td>
                                         </tr>
                                         <tr>
-                                            <th>USD</th>
+                                            <th>{{ __('app.products.show.usd_price') }}</th>
                                             <td>
                                                 @if($viewData['convertedPrices']['USD'])
                                                     ${{ number_format($viewData['convertedPrices']['USD'], 2) }} USD
                                                 @else
-                                                    <span class="text-muted">N/A</span>
+                                                    <span class="text-muted">{{ __('app.products.show.not_available') }}</span>
                                                 @endif
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th>EUR</th>
+                                            <th>{{ __('app.products.show.eur_price') }}</th>
                                             <td>
                                                 @if($viewData['convertedPrices']['EUR'])
                                                     €{{ number_format($viewData['convertedPrices']['EUR'], 2) }} EUR
                                                 @else
-                                                    <span class="text-muted">N/A</span>
+                                                    <span class="text-muted">{{ __('app.products.show.not_available') }}</span>
                                                 @endif
                                             </td>
                                         </tr>
