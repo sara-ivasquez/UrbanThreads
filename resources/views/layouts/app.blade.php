@@ -34,6 +34,11 @@
                             <i class="bi bi-bag"></i> {{ __('app.products_nav') }}
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('beauty.index') }}">
+                            <i class="bi bi-stars"></i> {{ __('app.beauty.nav') }}
+                        </a>
+                    </li>
                     @auth
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.orders') }}">

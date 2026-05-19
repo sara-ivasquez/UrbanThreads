@@ -202,4 +202,12 @@ return [
             'continue_shopping' => 'Seguir comprando',
         ],
     ],
+    'beauty' => [
+        'title' => 'Productos VeneKa Beauty',
+        'subtitle' => 'Productos y servicios de belleza de nuestros aliados',
+        'nav' => 'Belleza',
+        'service' => 'Servicio',
+        'article' => 'Producto',
+        'no_products' => 'No hay productos disponibles.',
+    ],
 ];

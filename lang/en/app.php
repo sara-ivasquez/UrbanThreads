@@ -202,4 +202,12 @@ return [
             'continue_shopping' => 'Continue shopping',
         ],
     ],
+    'beauty' => [
+        'title' => 'VeneKa Beauty Products',
+        'subtitle' => 'Beauty products and services from our partners',
+        'nav' => 'Beauty',
+        'service' => 'Service',
+        'article' => 'Product',
+        'no_products' => 'No products available.',
+    ],
 ];
