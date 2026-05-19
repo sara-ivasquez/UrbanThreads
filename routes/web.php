@@ -11,6 +11,7 @@ $cartControllerRoute = 'App\Http\Controllers\CartController';
 $reviewControllerRoute = 'App\Http\Controllers\ReviewController';
 $languageControllerRoute = 'App\Http\Controllers\LanguageController';
 $productApiControllerRoute = 'App\Http\Controllers\Api\ProductApiController';
+$beautyControllerRoute = 'App\Http\Controllers\BeautyProductController';
 
 // API routes
 Route::get('/api/products', $productApiControllerRoute.'@index')->name('api.products.index');
@@ -82,3 +83,5 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/order/download/pdf', $adminOrderControllerRoute.'@downloadPdf')->name('admin.order.download.pdf');
 });
 Auth::routes();
+
+Route::get('/beauty/products', $beautyControllerRoute.'@index')->name('beauty.index');
